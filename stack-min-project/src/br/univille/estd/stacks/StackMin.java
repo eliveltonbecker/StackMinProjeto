@@ -55,6 +55,8 @@ public class StackMin<E> implements Stack<E> {
 	@Override
 	public E min() throws EmptyStackException {
 		// TODO Auto-generated method stub
+		
+		
 		return null;
 	}
 
