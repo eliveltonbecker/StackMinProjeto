@@ -64,5 +64,56 @@ public class StackMinTests {
 		}catch(Exception ignored) {
 		}
 	}
+	
+	@Test
+	public void min() {
+		Stack<Integer> stack = new StackMin<Integer>();
+		
+		stack.push(20);
+		stack.push(52);
+		stack.push(85);
+		stack.push(1);
+		stack.push(10);
+		stack.push(18);
+		stack.push(30);
+		stack.push(12);
+		stack.push(11);
+		stack.push(3);
+		
+		assertEquals("O menor elemento da lista deve ser 1",1,(int) stack.min());
+	}
+	
+	@Test
+	public void minThrowsException() {
+		Stack<Integer> stack = new StackMin<Integer>();
+		try {
+			stack.min();
+			fail("Pilha deve gerar exceção EmptyStackException");
+		}catch(Exception ignored) {
+		}
+	}
+	
+	@Test
+	public void minAnt() {
+		Stack<Integer> stack = new StackMin<Integer>();
+		
+		stack.push(20);
+		stack.push(52);
+		stack.push(85);
+		stack.push(1);
+		stack.push(8);
+		stack.push(18);
+		stack.push(30);
+		stack.push(12);
+		stack.push(11);
+		stack.push(3);
+		
+		assertEquals("O menor elemento da lista deve ser 1",1,(int) stack.min());
+		stack.pop();
+		assertEquals("O menor elemento da lista deve ser 3",3,(int) stack.min());
+		stack.pop();
+		assertEquals("O menor elemento da lista deve ser 8",8,(int) stack.min());
+	}
+	
 
 }
