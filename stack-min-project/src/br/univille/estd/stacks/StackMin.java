@@ -36,7 +36,7 @@ public class StackMin<E> implements Stack<E> {
 	@Override
 	public void push(E element) {
 		if(size() == capacity) {
-			throw new FullStackException("A pilha est· cheia");
+			throw new FullStackException("A pilha est√° cheia");
 		}
 		top = top + 1;
 		S[top] = element;
@@ -45,7 +45,7 @@ public class StackMin<E> implements Stack<E> {
 	@Override
 	public E pop() throws EmptyStackException {
 		if(isEmpty()) {
-			throw new EmptyStackException("A pilha est· vazia");
+			throw new EmptyStackException("A pilha est√° vazia");
 		}
 		E element = S[top];
 		top = top -1;
@@ -54,10 +54,9 @@ public class StackMin<E> implements Stack<E> {
 
 	@Override
 	public E min() throws EmptyStackException {
-		// TODO Auto-generated method stub
-		
-		
-		return null;
+		if (isEmpty()) {
+			throw new EmptyStackException("N√£o consta");
+		}
+		return min;
 	}
-
 }
