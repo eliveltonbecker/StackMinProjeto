@@ -72,9 +72,13 @@ public class StackMinTests {
 	public void min() {
 		Stack<Integer> stack = new StackMin<Integer>(comparable);
 		stack.push(10);
+		stack.pop();
 		stack.push(15);
 		stack.push(8);
-		assertEquals("Top deve retornar o elemento 8",8,(int)stack.min());
+		stack.pop();
+		stack.push(30);
+		stack.push(50);
+		assertEquals("Top deve retornar o elemento 15",15,(int)stack.min());
 	}
 
 }
