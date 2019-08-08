@@ -1,31 +1,22 @@
- package br.univille.estd.stacks;
+package br.univille.estd.stacks;
 
-import br.univille.estd.stacks.comparables.Comparables;
+public class AuxStack<E> implements Stack<E> {
 
-public class StackMin<E> implements Stack<E> {
-
-	
-	protected AuxStack<E> auxStack = new AuxStack<E>();
-	protected Comparables<E> _comparable;
 	protected int capacity;
 	public static final int CAPACITY = 1000;
 	protected E S[];
 	protected int top = -1;
-	
-	public StackMin(Comparables<E> comparable) {
-		this(CAPACITY, comparable);
-		_comparable = comparable;
+	public AuxStack() {
+		this(CAPACITY);
 	}
-	public StackMin(int capacity, Comparables<E> comparable) {
+	public AuxStack(int capacity) {
 		this.capacity = capacity;
 		S = (E[])new Object[this.capacity];
-		_comparable = comparable;
 	}
 
-	
 	@Override
 	public int size() {
-		return top+1;
+		return top-1;
 	}
 
 	@Override
@@ -40,7 +31,7 @@ public class StackMin<E> implements Stack<E> {
 		}
 		return S[top];
 	}
-
+	
 	@Override
 	public void push(E element) {
 		if(size() == capacity) {
@@ -48,14 +39,6 @@ public class StackMin<E> implements Stack<E> {
 		}
 		top = top + 1;
 		S[top] = element;
-			
-			
-			if( auxStack.isEmpty()  == false && _comparable.compare(element, auxStack.top()) > 0 ) {
-				auxStack.push(auxStack.top());
-			}else {
-				auxStack.push(element);
-			}
-		
 	}
 
 	@Override
@@ -66,18 +49,14 @@ public class StackMin<E> implements Stack<E> {
 		
 		E element = S[top];
 		top = top -1;
-		auxStack.pop();
 		return element;
 	}
-
 	@Override
 	public E min() throws EmptyStackException {
-		if(isEmpty()) {
-			throw new EmptyStackException("A pilha está vazia");
-		}
-		else {
-			return auxStack.top();
-		}
+		// TODO Auto-generated method stub
+		return null;
 	}
-
+	
+	
+	
 }
